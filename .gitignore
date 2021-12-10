@@ -1,0 +1,9 @@
+src/main/java/com/demo/LocalAPITestData/TestData/node_modules
+test-output/
+target/
+.settings
+.project
+.classpath
+.metadata
+.idea
+Report/

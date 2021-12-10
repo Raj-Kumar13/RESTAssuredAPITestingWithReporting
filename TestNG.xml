@@ -1,0 +1,25 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Run All Test Cases" verbose="1">
+    <listeners>
+        <listener class-name="com.demo.listeners.Listener" />
+
+    </listeners>
+
+    <test name="REQRES API">
+        <classes>
+            <class name="com.demo.tests.CreateUser" />
+            <class name="com.demo.tests.GetUsers" />
+            <class name="com.demo.tests.UpdateUser" />
+            <class name="com.demo.tests.DeleteUser" />
+        </classes>
+    </test>
+
+
+    <test name="Local API Testing">
+        <classes>
+            <class name="com.demo.LocalAPITesting.StudentHttpMethods" />
+            <class name="com.demo.LocalAPITesting.SubjectHttpMethods" />
+        </classes>
+    </test>
+</suite>

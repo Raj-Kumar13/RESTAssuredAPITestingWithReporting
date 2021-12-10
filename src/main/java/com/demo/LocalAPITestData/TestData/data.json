@@ -1,0 +1,76 @@
+{
+  "student": [
+    {
+      "id": 1,
+      "Name": "Morgan",
+      "subjectId": "1",
+      "marks": "78"
+    },
+    {
+      "id": 2,
+      "Name": "scott",
+      "subjectId": "2",
+      "marks": "89"
+    },
+    {
+      "id": 3,
+      "Name": "Martin",
+      "subjectId": "1",
+      "marks": "60"
+    },
+    {
+      "marks": 90,
+      "subjectId": 3,
+      "Name": "ema",
+      "id": 6
+    },
+    {
+      "marks": 80,
+      "subjectId": 3,
+      "Name": "Ram",
+      "id": 7
+    },
+    {
+      "marks": 80,
+      "subjectId": 3,
+      "Name": "Ram",
+      "id": 8
+    },
+    {
+      "marks": 80,
+      "subjectId": 3,
+      "Name": "Ram",
+      "id": 9
+    },
+    {
+      "marks": 80,
+      "subjectId": 3,
+      "Name": "Ram",
+      "id": 13
+    },
+    {
+      "marks": 70,
+      "subjectId": 3,
+      "Name": "syam",
+      "id": 14
+    }
+  ],
+  "subjects": [
+    {
+      "id": 1,
+      "subjectName": "maths"
+    },
+    {
+      "id": 2,
+      "subjectName": "english"
+    },
+    {
+      "subjectName": "Economics",
+      "id": 3
+    },
+    {
+      "subjectName": "Social",
+      "id": 6
+    }
+  ]
+}
