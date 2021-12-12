@@ -1,6 +1,6 @@
 package com.demo.listeners;
 
-import com.demo.Report.ReportManager;
+import com.demo.ReportConfig.ReportManager;
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
 import org.testng.ITestListener;
