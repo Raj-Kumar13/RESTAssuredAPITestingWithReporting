@@ -74,4 +74,4 @@ npx json-server --watch data.json
 
 ### Report:
     - After running `Run TestNg Suit` Refresh (F5) the Root directory of your project
-    - Idenetify `Report` Folder under `index.html` file open it on your Default Browser (Chrome, FireFox, MicroSoftEdge .....)
+    - Idenetify `Report` Folder from your `Project Explorer` under `index.html` file open it on your Default Browser (Chrome, FireFox, MicroSoftEdge .....)
