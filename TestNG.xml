@@ -16,10 +16,10 @@
     </test>
 
 
-    <test name="Local API Testing">
+     <test name="Local API Testing">
         <classes>
             <class name="com.demo.LocalAPITesting.StudentHttpMethods" />
             <class name="com.demo.LocalAPITesting.SubjectHttpMethods" />
         </classes>
-    </test>
+    </test>  
 </suite>

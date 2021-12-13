@@ -16,7 +16,7 @@ import io.restassured.response.Response;
 
 public class SubjectHttpMethods extends BaseURL{
 
-    @Test(priority =5)
+    @Test(priority =5,description = "Get Subject List using Get Method")
     public void getSubjectsList() {
         int id =1;
         String subjectName ="maths";
@@ -24,12 +24,13 @@ public class SubjectHttpMethods extends BaseURL{
                 .when().get("subjects")
                 .then().extract().response();
         JsonPath jsonPath = jsonPathConverter(response);
+        addResponseToReport(response.asPrettyString());
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertEquals(jsonPath.getInt("id[0]"), id);
         Assert.assertEquals(jsonPath.getString("subjectName[0]"), subjectName);
     }
 
-    @Test(priority =6)
+    @Test(priority =6,description = "Get subject details By ID using Get Mesthod")
     public void getSubjectsById() {
         int id =2;
         String subjectName = "english";
@@ -37,12 +38,13 @@ public class SubjectHttpMethods extends BaseURL{
                 .when().get("subjects/{id}",id)
                 .then().extract().response();
         JsonPath jsonPath = jsonPathConverter(response);
+        addResponseToReport(response.asPrettyString());
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertEquals(jsonPath.getInt("id"),id );
         Assert.assertEquals(jsonPath.getString("subjectName"), subjectName);
     }
 
-    @Test(priority =7)
+    @Test(priority =7,description = "Create subject details using Post Mesthod")
     public void createSubject() {
 
         String subjectName="Social";
@@ -55,9 +57,10 @@ public class SubjectHttpMethods extends BaseURL{
         Assert.assertEquals(response.getStatusCode(), 201);
         Assert.assertNotNull(response.body());
         JsonPath jsonPath = jsonPathConverter(response);
+        addResponseToReport(response.asPrettyString());
         Assert.assertEquals(jsonPath.getString("subjectName"),subjectName);
     }
-    @Test(priority =8)
+    @Test(priority =8,description = "Update subject details By ID using Put Mesthod")
     public void updateSubjectDetailsByID() {
 
         String subjectName="Economics";
@@ -68,11 +71,12 @@ public class SubjectHttpMethods extends BaseURL{
                 .when().put("subjects/"+id)
                 .then().extract().response();
         JsonPath jsonPath = jsonPathConverter(response);
+        addResponseToReport(response.asPrettyString());
         Assert.assertEquals(jsonPath.getString("subjectName"),subjectName);
 
     }
 
-    @Test(priority=9)
+    @Test(priority=9,description = "Delete subject details By ID using Delete Mesthod")
     public void deleteSubjectByID() {
         int id =8;
 

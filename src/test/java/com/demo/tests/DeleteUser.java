@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 public class DeleteUser  extends BaseURL{
 
-    @Test(priority=5)
+    @Test(priority=5, description = "Delete User Using Delete method")
     public void deleteUserById() {
 
         Response response = given()
