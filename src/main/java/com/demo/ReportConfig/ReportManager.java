@@ -6,7 +6,7 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class ReportManager {
-    private static ExtentReports extent;
+    public static ExtentReports extent;
     public static ExtentTest test;
 
     public static void configReport() {
@@ -29,5 +29,10 @@ public class ReportManager {
                 .assignAuthor("Adam")
                 .assignDevice("chrome 95");
 
+    }
+    
+    public static void logResponse(String message) {
+    	String formattedMessage = message.replace("\n", "<br>");
+    	test.info("<pre> "+formattedMessage+" </pre>");
     }
 }

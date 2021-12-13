@@ -53,6 +53,12 @@
       "subjectId": 3,
       "Name": "syam",
       "id": 14
+    },
+    {
+      "marks": 70,
+      "subjectId": 3,
+      "Name": "syam",
+      "id": 15
     }
   ],
   "subjects": [
@@ -71,6 +77,10 @@
     {
       "subjectName": "Social",
       "id": 6
+    },
+    {
+      "subjectName": "Social",
+      "id": 7
     }
   ]
 }

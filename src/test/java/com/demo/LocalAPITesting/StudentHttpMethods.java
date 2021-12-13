@@ -13,12 +13,13 @@ import io.restassured.response.Response;
 
 public class StudentHttpMethods extends BaseURL{
 
-    @Test(priority =0)
+    @Test(priority =0,description = "Get Student List using Get Method")
     public void getStudentList() {
 
         Response response = given().header("Content-Type","Application.json").contentType(ContentType.JSON).accept(ContentType.JSON)
                 .when().get("student")
                 .then().extract().response();
+        addResponseToReport(response.asPrettyString());
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertEquals(response.jsonPath().getInt("id[0]"), 1);
         Assert.assertEquals(response.jsonPath().getString("Name[0]"), "Morgan");
@@ -28,7 +29,7 @@ public class StudentHttpMethods extends BaseURL{
 
     }
 
-    @Test(priority =1)
+    @Test(priority =1,description = "Get Student details By ID using Get Mesthod")
     public void getStudentByID() {
         int id=2;
 
@@ -36,6 +37,7 @@ public class StudentHttpMethods extends BaseURL{
                 .when().get("student/{id}",id)
                 .then().extract().response();
         JsonPath jsonPath = jsonPathConverter(response);
+        addResponseToReport(response.asPrettyString());
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertEquals(jsonPath.getInt("id"), 2);
         Assert.assertEquals(jsonPath.getString("Name"), "scott");
@@ -44,7 +46,7 @@ public class StudentHttpMethods extends BaseURL{
 
 
     }
-    @Test(priority =2)
+    @Test(priority =2,description = "Create Student details using Post Mesthod")
     public void createStudent() {
         String name ="syam";
         int subjectId =3;
@@ -55,6 +57,7 @@ public class StudentHttpMethods extends BaseURL{
                 .when().post("student")
                 .then().extract().response();
         JsonPath jsonPath = jsonPathConverter(response);
+        addResponseToReport(response.asPrettyString());
         Assert.assertEquals(response.getStatusCode(), 201);
         Assert.assertNotNull(response.body());
         Assert.assertEquals(jsonPath.getInt("marks"), marks);
@@ -63,7 +66,7 @@ public class StudentHttpMethods extends BaseURL{
     }
 
 
-    @Test(priority =3)
+    @Test(priority =3,description = "Update Student details By ID using Put Mesthod")
     public void updateStudentDetailsByID() {
         String name ="ema";
         int subjectId =3;
@@ -76,6 +79,7 @@ public class StudentHttpMethods extends BaseURL{
 
         Assert.assertEquals(response.getStatusCode(), 200);
         JsonPath jsonPath = jsonPathConverter(response);
+        addResponseToReport(response.asPrettyString());
         Assert.assertEquals(jsonPath.getInt("marks"), marks);
         Assert.assertEquals(jsonPath.getInt("subjectId"), subjectId);
         Assert.assertEquals(jsonPath.getString("Name"), name);
@@ -83,7 +87,7 @@ public class StudentHttpMethods extends BaseURL{
 
     }
 
-    @Test(priority =4)
+    @Test(priority =4,description = "Delete Student details By ID using Delete Mesthod")
     public void deleteStudentByID() {
 
         Response response = given()

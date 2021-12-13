@@ -5,19 +5,20 @@ import static io.restassured.RestAssured.given;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.demo.ReportConfig.ReportManager;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 public class GetUsers extends BaseURL {
 
-    @Test(priority=0)
+    @Test(priority=0, description = "Get List User's Useing Get method")
     public void getAllUsers() {
         int pageNumber =1;
 
         Response response =  given().accept(ContentType.JSON).queryParam("page",pageNumber)
                 .when().get("users")
                 .then().extract().response();
-
+        addResponseToReport(response.asPrettyString());
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertEquals(response.jsonPath().getInt("page"), 1);
         Assert.assertEquals(response.jsonPath().getInt("per_page"), 6);
@@ -27,7 +28,7 @@ public class GetUsers extends BaseURL {
         Assert.assertTrue(response.jsonPath().getString("support.url").contains("reqres.in") );
     }
 
-    @Test(priority=1)
+    @Test(priority=1,description = "Get User Using Get method")
     public void getUserByID() {
         int id =1;
         Response response = given().accept(ContentType.JSON)
@@ -35,6 +36,7 @@ public class GetUsers extends BaseURL {
                 .then().extract().response();
 
         Assert.assertEquals(response.statusCode(),200);
+        addResponseToReport(response.asPrettyString());
         Assert.assertEquals(response.jsonPath().getInt("data.id"),1);
         Assert.assertEquals(response.jsonPath().getString("data.email"),"george.bluth@reqres.in");
         Assert.assertEquals(response.jsonPath().getString("data.first_name"), "George");
